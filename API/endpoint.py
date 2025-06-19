@@ -1,6 +1,11 @@
 import string
 import random
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 
+app = FastAPI()
+
+@app.get("/password-generator")
 def passwordgenerator(length: int):
     
     password = []
@@ -9,5 +14,9 @@ def passwordgenerator(length: int):
         password.append(randomchar)
         
     return ''.join(password)
-
-print(passwordgenerator(8))
+    
+    
+    
+@app.get("/ping")
+async def ping():
+    return JSONResponse(content={"message": "pong"}, status_code=200)
