@@ -15,8 +15,7 @@ def passwordgenerator(length: int):
         
     return ''.join(password)
     
-    
-    
+
 @app.get("/ping")
 async def ping():
     return JSONResponse(content={"message": "pong"}, status_code=200)
